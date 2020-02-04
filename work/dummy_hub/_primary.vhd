@@ -1,0 +1,62 @@
+library verilog;
+use verilog.vl_types.all;
+entity dummy_hub is
+    generic(
+        sld_node_ir_width: integer := 16
+    );
+    port(
+        jtag_tck        : in     vl_logic;
+        jtag_tdi        : in     vl_logic;
+        jtag_tms        : in     vl_logic;
+        jtag_usr1       : in     vl_logic;
+        jtag_state_tlr  : in     vl_logic;
+        jtag_state_rti  : in     vl_logic;
+        jtag_state_drs  : in     vl_logic;
+        jtag_state_cdr  : in     vl_logic;
+        jtag_state_sdr  : in     vl_logic;
+        jtag_state_e1dr : in     vl_logic;
+        jtag_state_pdr  : in     vl_logic;
+        jtag_state_e2dr : in     vl_logic;
+        jtag_state_udr  : in     vl_logic;
+        jtag_state_irs  : in     vl_logic;
+        jtag_state_cir  : in     vl_logic;
+        jtag_state_sir  : in     vl_logic;
+        jtag_state_e1ir : in     vl_logic;
+        jtag_state_pir  : in     vl_logic;
+        jtag_state_e2ir : in     vl_logic;
+        jtag_state_uir  : in     vl_logic;
+        dummy_tdo       : in     vl_logic;
+        virtual_ir_out  : in     vl_logic_vector;
+        jtag_tdo        : out    vl_logic;
+        dummy_tck       : out    vl_logic;
+        dummy_tdi       : out    vl_logic;
+        dummy_tms       : out    vl_logic;
+        dummy_state_tlr : out    vl_logic;
+        dummy_state_rti : out    vl_logic;
+        dummy_state_drs : out    vl_logic;
+        dummy_state_cdr : out    vl_logic;
+        dummy_state_sdr : out    vl_logic;
+        dummy_state_e1dr: out    vl_logic;
+        dummy_state_pdr : out    vl_logic;
+        dummy_state_e2dr: out    vl_logic;
+        dummy_state_udr : out    vl_logic;
+        dummy_state_irs : out    vl_logic;
+        dummy_state_cir : out    vl_logic;
+        dummy_state_sir : out    vl_logic;
+        dummy_state_e1ir: out    vl_logic;
+        dummy_state_pir : out    vl_logic;
+        dummy_state_e2ir: out    vl_logic;
+        dummy_state_uir : out    vl_logic;
+        virtual_state_cdr: out    vl_logic;
+        virtual_state_sdr: out    vl_logic;
+        virtual_state_e1dr: out    vl_logic;
+        virtual_state_pdr: out    vl_logic;
+        virtual_state_e2dr: out    vl_logic;
+        virtual_state_udr: out    vl_logic;
+        virtual_state_cir: out    vl_logic;
+        virtual_state_uir: out    vl_logic;
+        virtual_ir_in   : out    vl_logic_vector
+    );
+    attribute mti_svvh_generic_type : integer;
+    attribute mti_svvh_generic_type of sld_node_ir_width : constant is 1;
+end dummy_hub;
