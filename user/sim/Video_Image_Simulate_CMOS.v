@@ -51,8 +51,7 @@ localparam V_TOTAL = V_SYNC + V_BACK + V_DISP + V_FRONT;	//10'd510
 //----------------------------------
 ////25MHz when rgb output, 12.5MHz when raw output
 reg		pixel_cnt;
-always@(posedge clk or negedge rst_n)
-begin
+always@(posedge clk or negedge rst_n) begin
 	if(!rst_n)
 		pixel_cnt <= 0;
 	else 
@@ -66,8 +65,7 @@ assign	cmos_pclk	= 	~clk;
 //---------------------------------------------
 //Horizontal counter
 reg	[10:0]	hcnt;
-always@(posedge clk or negedge rst_n)
-begin
+always@(posedge clk or negedge rst_n) begin
 	if(!rst_n)
 		hcnt <= 11'd0;
 	else if(pixel_flag)
@@ -79,17 +77,15 @@ end
 //---------------------------------------------
 //Vertical counter
 reg	[10:0]	vcnt;
-always@(posedge clk or negedge rst_n)
-begin
+always@(posedge clk or negedge rst_n) begin
 	if(!rst_n)
 		vcnt <= 11'd0;		
-	else if(pixel_flag)
-		begin
+	else if(pixel_flag) begin
 		if(hcnt == H_TOTAL - 1'b1)
 			vcnt <= (vcnt < V_TOTAL - 1'b1) ? vcnt + 1'b1 : 11'd0;
 		else
 			vcnt <= vcnt;
-		end
+	end
 	else
 		vcnt <= vcnt;
 end
@@ -97,17 +93,15 @@ end
 //---------------------------------------------
 //Image data vsync valid signal
 reg	cmos_vsync_r;
-always@(posedge clk or negedge rst_n)
-begin
+always@(posedge clk or negedge rst_n) begin
 	if(!rst_n)
 		cmos_vsync_r <= 1'b0;			//H: Vaild, L: inVaild
-	else if(pixel_flag)
-		begin
+	else if(pixel_flag) begin
 		if(vcnt <= V_SYNC - 1'b1)
 			cmos_vsync_r <= 1'b0; 	//H: Vaild, L: inVaild
 		else
 			cmos_vsync_r <= 1'b1; 	//H: Vaild, L: inVaild
-		end
+	end
 	else
 		cmos_vsync_r <= cmos_vsync_r;
 end
@@ -119,34 +113,30 @@ assign	cmos_vsync	=	(CMOS_VSYNC_VALID	== 1'b0) ? ~cmos_vsync_r :	cmos_vsync_r;
 wire	frame_valid_ahead = ((vcnt >= V_SYNC + V_BACK  && vcnt < V_SYNC + V_BACK + V_DISP &&
 						hcnt >= H_SYNC + H_BACK  && hcnt < H_SYNC + H_BACK + H_DISP)) 
 						? 1'b1 : 1'b0;
-always@(posedge clk or negedge rst_n)
-begin
+always@(posedge clk or negedge rst_n) begin
 	if(!rst_n)
 		cmos_href <= 0;
-	else if(pixel_flag) 
-		begin
+	else if(pixel_flag) begin
 		if(frame_valid_ahead)
 			cmos_href <= 1;
 		else
 			cmos_href <= 0;
-		end
+	end
 	else
 		cmos_href <= cmos_href;
 end
 
 //---------------------------------------------
 //CMOS Camera data output
-always@(posedge clk or negedge rst_n)
-begin
+always@(posedge clk or negedge rst_n) begin
 	if(!rst_n)
 		cmos_data <= 16'd0;
-	else if(pixel_flag)
-		begin
+	else if(pixel_flag) begin
 		if(frame_valid_ahead)
 			cmos_data <= hcnt[7:0] - (8'd10 - 8'd1);
 		else
 			cmos_data <= 0;
-		end
+	end
 	else
 		cmos_data <= cmos_data;
 end

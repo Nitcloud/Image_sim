@@ -3,7 +3,5 @@ Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
 Running: D:/APP/vivado_18_3/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -wto dfad90d6ab8f41669b65b5ab396f5d85 --incr --debug typical --relax --mt 6 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot testbench_behav xil_defaultlib.testbench xil_defaultlib.glbl -log elaborate.log 
 Using 6 slave threads.
 Starting static elaboration
-ERROR: [VRFC 10-2991] 'intended_device_family' is not declared under prefix 'ALTSHIFT_TAPS_component' [D:/project/My_FPGA/TCL_project/Image_sim/user/src/Video_Image_Processor/Operation/Line_Shift_RAM_8Bit.v:85]
-ERROR: [VRFC 10-2991] 'lpm_hint' is not declared under prefix 'ALTSHIFT_TAPS_component' [D:/project/My_FPGA/TCL_project/Image_sim/user/src/Video_Image_Processor/Operation/Line_Shift_RAM_8Bit.v:86]
-ERROR: [VRFC 10-2991] 'lpm_type' is not declared under prefix 'ALTSHIFT_TAPS_component' [D:/project/My_FPGA/TCL_project/Image_sim/user/src/Video_Image_Processor/Operation/Line_Shift_RAM_8Bit.v:87]
-ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

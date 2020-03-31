@@ -48,20 +48,16 @@ end
 //---------------------------------------
 //module of shift ram for raw data
 wire	shift_clk_en = per_frame_href;
-Line_Shift_RAM_8Bit 
-#(
-	.RAM_Length	(IMG_HDISP)
-)
-u_Line_Shift_RAM_8Bit
-(
-	.clock		(clk),
-	.clken		(shift_clk_en),	//pixel enable clock
-//	.aclr		(1'b0),
+Line_Shift_RAM #(
+    .RAM_Length ( IMG_HDISP ),
+    .DATA_WIDTH ( 8       )
+) u_Line_Shift_RAM (
+    .clock                   ( clk          ),
+    .clken                   ( shift_clk_en ),
+    .shiftin                 ( row3_data    ),
 
-	.shiftin	(row3_data),	//Current data input
-	.taps0x		(row2_data),	//Last row data
-	.taps1x		(row1_data),	//Up a row data
-	.shiftout	()
+    .taps0x                  ( row2_data    ),
+    .taps1x                  ( row1_data    )
 );
 
 //------------------------------------------

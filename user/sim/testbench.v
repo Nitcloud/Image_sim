@@ -20,14 +20,13 @@ task task_reset; begin
 	rst_n = 1;
 end
 endtask
-wire	clk_cmos = clk;		//24MHz
 wire	sys_rst_n = rst_n;	
 
 localparam	[9:0]	IMG_HDISP = 10'd16;	
-localparam	[9:0]	IMG_VDISP = 10'd4;
+localparam	[9:0]	IMG_VDISP = 10'd5;
 //-----------------------------------------
 //CMOS Camera interface and data output simulation
-wire			cmos_xclk;				//24MHz drive clock
+wire			cmos_xclk = clk;		//24MHz drive clock
 wire			cmos_pclk;				//24MHz CMOS Pixel clock input
 wire			cmos_vsync;				//L: vaild, H: invalid
 wire			cmos_href;				//H: vaild, L: invalid
@@ -40,7 +39,7 @@ Video_Image_Simulate_CMOS #(
 	//global reset
 	.rst_n				(sys_rst_n),	
 	//CMOS Camera interface and data output simulation
-	.cmos_xclk			(clk_cmos),			//25MHz cmos clock
+	.cmos_xclk			(cmos_xclk),		//25MHz cmos clock
 	.cmos_pclk			(cmos_pclk),		//25MHz when rgb output
 	.cmos_vsync			(cmos_vsync),		//L: vaild, H: invalid
 	.cmos_href			(cmos_href),		//H: vaild, L: invalid

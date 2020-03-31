@@ -1,0 +1,92 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Tue Mar 31 17:43:13 2020
+# Process ID: 37260
+# Current directory: D:/project/My_FPGA/TCL_project/Image_sim
+# Command line: vivado.exe -mode tcl -s c:/Users/sterben/.vscode/extensions/sterben.fpga-support-0.1.6/src/.TOOL/Xilinx/Script/Xilinx_TCL/Vivado/run.tcl -notrace
+# Log file: D:/project/My_FPGA/TCL_project/Image_sim/vivado.log
+# Journal file: D:/project/My_FPGA/TCL_project/Image_sim\vivado.jou
+#-----------------------------------------------------------
+source c:/Users/sterben/.vscode/extensions/sterben.fpga-support-0.1.6/src/.TOOL/Xilinx/Script/Xilinx_TCL/Vivado/run.tcl -notrace
+update_compile_order -fileset sources_1
+config_ip_cache -disable_cache
+update_ip_catalog
+launch_simulation
+launch_simulation
+source testbench.tcl
+relaunch_sim
+run 10 us
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+run 10 us
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+relaunch_sim
+relaunch_sim
+source D:/project/Code/Plug/fpga_support/src/.TOOL/Xilinx/Script/Xilinx_TCL/Vivado/Update.tcl
+update_compile_order -fileset sources_1
+relaunch_sim
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+run 10 us
+restart
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+relaunch_sim
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+run 10 us
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+run 10 us
+run 10 us
+run 10 us
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+run 10 us
+relaunch_sim
+run 10 us

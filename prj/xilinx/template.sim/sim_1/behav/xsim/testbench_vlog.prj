@@ -3,6 +3,7 @@ verilog xil_defaultlib  \
 "../../../../../../user/src/Video_Image_Processor/Operation/Line_Shift_RAM.v" \
 "../../../../../../user/src/Video_Image_Processor/Operation/Line_Shift_RAM_8Bit.v" \
 "../../../../../../user/src/Video_Image_Processor/Matrix/Matrix_Generate_3X3_8Bit.v" \
+"../../../../../../user/src/Video_Image_Processor/Operation/RAMshift_taps.v" \
 "../../../../../../user/sim/Video_Image_Simulate_CMOS.v" \
 "../../../../../../user/src/Video_Image_Processor/Operation/altshift_taps.v" \
 "../../../../../../user/sim/testbench.v" \
