@@ -47,12 +47,9 @@ SQRT  SQRT_u (
     .q                       ( q          [10:0] ),
     .remainder               ( remainder  [11:0] )
 );
-initial begin
-    $finish;
-end
+// initial begin
+//     $finish;
+// end
 
-initial begin            
-    $dumpfile("wave.vcd");        
-    $dumpvars(0, testbench);   
-end
+
 endmodule
