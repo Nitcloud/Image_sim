@@ -1,0 +1,14 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../../../user/src/Video_Image_Processor/Operation/Line_Shift_RAM.v" \
+"../../../../../../user/src/Video_Image_Processor/Operation/Line_Shift_RAM_8Bit.v" \
+"../../../../../../user/src/Video_Image_Processor/Matrix/Matrix_Generate_3X3_8Bit.v" \
+"../../../../../../user/sim/Video_Image_Simulate_CMOS.v" \
+"../../../../../../user/src/Video_Image_Processor/Operation/altshift_taps.v" \
+"../../../../../../user/sim/testbench.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
