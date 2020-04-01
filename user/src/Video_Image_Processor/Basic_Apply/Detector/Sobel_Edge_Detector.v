@@ -111,9 +111,11 @@ end
 //---------------------------------------
 //Caculate the distance of P5 = (Gx^2 + Gy^2)^0.5
 //Step 4
-wire	[10:0]	Dim;
-SQRT	u_SQRT
-(
+Sqrt #(
+	.q_port_width (11),
+	.r_port_width (12),
+	.width        (21)
+) SQRT_u (
 	.radical	(Gxy_square),
 	.q			(Dim),
 	.remainder	()

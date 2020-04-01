@@ -41,9 +41,15 @@ end
 // SQRT Outputs
 wire  [10:0]  q;
 wire  [11:0]  remainder;
-SQRT  SQRT_u (
+sqrt #(
+	.q_port_width (11),
+	.r_port_width (12),
+	.width        (21)
+) SQRT_u (
+	.clk(clk_main),
+	.ena(1),
+	.aclr(1),
     .radical                 ( data       [20:0] ),
-
     .q                       ( q          [10:0] ),
     .remainder               ( remainder  [11:0] )
 );

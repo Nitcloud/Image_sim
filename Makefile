@@ -24,3 +24,4 @@ TEST
 #/*****************/The info of device Note: auto generate do not touch
 Device
 xc7z020clg400-2
+xc7z020clg400-2

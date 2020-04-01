@@ -1,4 +1,4 @@
-module Rate_Switch #(
+module FIFO_RAM #(
 	parameter TOTAL_RAM_Length = 2048,
 	parameter DATA_WIDTH = 12
 ) (
