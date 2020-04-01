@@ -25,3 +25,4 @@ TEST
 Device
 xc7z020clg400-2
 xc7z020clg400-2
+xc7z020clg400-2
