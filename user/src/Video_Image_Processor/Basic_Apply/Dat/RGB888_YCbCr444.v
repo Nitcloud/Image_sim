@@ -1,6 +1,5 @@
 `timescale 1ns/1ns
-module RGB888_YCbCr444
-(
+module RGB888_YCbCr444 (
 	//global clock
 	input				clk,  				//cmos video pixel clock
 	input				rst_n,				//global reset
@@ -35,10 +34,8 @@ module RGB888_YCbCr444
 reg	[15:0]	img_red_r0,		img_red_r1,		img_red_r2;	
 reg	[15:0]	img_green_r0,	img_green_r1,	img_green_r2; 
 reg	[15:0]	img_blue_r0,	img_blue_r1,	img_blue_r2; 
-always@(posedge clk or negedge rst_n)
-begin
-	if(!rst_n)
-		begin
+always@(posedge clk or negedge rst_n) begin
+	if(!rst_n) begin
 		img_red_r0		<=	0; 		
 		img_red_r1		<=	0; 		
 		img_red_r2		<=	0; 	
@@ -48,9 +45,8 @@ begin
 		img_blue_r0		<=	0; 		
 		img_blue_r1		<=	0; 		
 		img_blue_r2		<=	0; 			
-		end
-	else
-		begin
+	end
+	else begin
 		img_red_r0		<=	per_img_red 	* 	8'd77; 		
 		img_red_r1		<=	per_img_red 	* 	8'd43; 	
 		img_red_r2		<=	per_img_red 	* 	8'd128; 		
@@ -60,7 +56,7 @@ begin
 		img_blue_r0		<=	per_img_blue 	* 	8'd29; 		
 		img_blue_r1		<=	per_img_blue 	* 	8'd128; 			
 		img_blue_r2		<=	per_img_blue 	* 	8'd21; 		
-		end
+	end
 end
 
 //--------------------------------------------------
@@ -68,20 +64,17 @@ end
 reg	[15:0]	img_Y_r0;	
 reg	[15:0]	img_Cb_r0; 
 reg	[15:0]	img_Cr_r0; 
-always@(posedge clk or negedge rst_n)
-begin
-	if(!rst_n)
-		begin
+always@(posedge clk or negedge rst_n) begin
+	if(!rst_n) begin
 		img_Y_r0	<=	0; 		
 		img_Cb_r0	<=	0; 		
 		img_Cr_r0	<=	0; 	
-		end
-	else
-		begin
+	end
+	else begin
 		img_Y_r0	<=	img_red_r0 	+ 	img_green_r0 	+ 	img_blue_r0; 		
 		img_Cb_r0	<=	img_blue_r1 - 	img_red_r1 		- 	img_green_r1	+	16'd32768; 		
 		img_Cr_r0	<=	img_red_r2 	+ 	img_green_r2 	+ 	img_blue_r2		+	16'd32768; 		
-		end
+	end
 end
 
 //--------------------------------------------------
@@ -89,46 +82,37 @@ end
 reg	[7:0]	img_Y_r1;	
 reg	[7:0]	img_Cb_r1; 
 reg	[7:0]	img_Cr_r1; 
-always@(posedge clk or negedge rst_n)
-begin
-	if(!rst_n)
-		begin
+always@(posedge clk or negedge rst_n) begin
+	if(!rst_n) begin
 		img_Y_r1	<=	0; 		
 		img_Cb_r1	<=	0; 		
 		img_Cr_r1	<=	0; 	
-		end
-	else
-		begin
+	end
+	else begin
 		img_Y_r1	<=	img_Y_r0[15:8];
 		img_Cb_r1	<=	img_Cb_r0[15:8];
 		img_Cr_r1	<=	img_Cr_r0[15:8]; 
-		end
+	end
 end
-
-
 
 //------------------------------------------
 //lag 3 clocks signal sync  
 reg	[2:0]	per_frame_vsync_r;
 reg	[2:0]	per_frame_href_r;	
-always@(posedge clk or negedge rst_n)
-begin
-	if(!rst_n)
-		begin
+always@(posedge clk or negedge rst_n) begin
+	if(!rst_n) begin
 		per_frame_vsync_r <= 0;
 		per_frame_href_r <= 0;
-		end
-	else
-		begin
+	end
+	else begin
 		per_frame_vsync_r 	<= 	{per_frame_vsync_r[1:0], 	per_frame_vsync};
 		per_frame_href_r 	<= 	{per_frame_href_r[1:0], 	per_frame_href};
-		end
+	end
 end
 assign	post_frame_vsync 	= 	per_frame_vsync_r[2];
 assign	post_frame_href 	= 	per_frame_href_r[2];
 assign	post_img_Y 	= 	post_frame_href ? img_Y_r1 : 8'd0;
 assign	post_img_Cb =	post_frame_href ? img_Cb_r1: 8'd0;
 assign	post_img_Cr = 	post_frame_href ? img_Cr_r1: 8'd0;
-
 
 endmodule

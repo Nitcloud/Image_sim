@@ -2,7 +2,7 @@
 `timescale  1ns / 1ps
 module testbench();
 
-parameter DATA_WIDTH = 32;
+parameter DATA_WIDTH = 21;
 parameter ADDR_WIDTH = 32;
 parameter MAIN_FRE   = 100; //unit MHz
 reg                   clk_main  = 0;
@@ -21,7 +21,7 @@ end
 
 //addr output
 always begin
-    if (valid_out) begin
+    if (sys_rst_n) begin
         #10 addr = addr + 1;#10;
     end
     else begin     
@@ -30,8 +30,8 @@ always begin
 end
 //data output
 always begin
-    if (valid_out) begin
-        #10 data = data + 1;#10;
+    if (sys_rst_n) begin
+        #10 data = addr * addr + 3;#10;
     end
     else begin     
         #10 data = 0;#10;

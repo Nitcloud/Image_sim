@@ -1,9 +1,8 @@
 `timescale 1ns/1ns
-module	Median_Filter_3X3
-(
-	input			clk,
-	input			rst_n,
-	
+module	Median_Filter_3X3 (
+	input			    clk,
+	input			    rst_n,
+
 	input		[7:0]	data11, data12, data13,
 	input		[7:0]	data21, data22, data23,
 	input		[7:0]	data31, data32, data33,
@@ -20,8 +19,7 @@ module	Median_Filter_3X3
 
 //Step1
 wire	[7:0]	max_data1, mid_data1, min_data1;
-Sort3	u_Sort3_1
-(
+Sort3	u_Sort3_1 (
 	.clk		(clk),
 	.rst_n		(rst_n),
 	
@@ -35,8 +33,7 @@ Sort3	u_Sort3_1
 );
 
 wire	[7:0]	max_data2, mid_data2, min_data2;
-Sort3	u_Sort3_2
-(
+Sort3	u_Sort3_2 (
 	.clk		(clk),
 	.rst_n		(rst_n),
 	
@@ -50,8 +47,7 @@ Sort3	u_Sort3_2
 );
 
 wire	[7:0]	max_data3, mid_data3, min_data3;
-Sort3	u_Sort3_3
-(
+Sort3	u_Sort3_3 (
 	.clk		(clk),
 	.rst_n		(rst_n),
 	
@@ -66,8 +62,7 @@ Sort3	u_Sort3_3
 
 //Step2
 wire	[7:0]	max_min_data, mid_mid_data, min_max_data;
-Sort3	u_Sort3_4
-(
+Sort3	u_Sort3_4 (
 	.clk		(clk),
 	.rst_n		(rst_n),
 	
@@ -80,8 +75,7 @@ Sort3	u_Sort3_4
 	.min_data   (max_min_data)
 );
 
-Sort3	u_Sort3_5
-(
+Sort3	u_Sort3_5 (
 	.clk		(clk),
 	.rst_n		(rst_n),
 	
@@ -94,8 +88,7 @@ Sort3	u_Sort3_5
 	.min_data   ()
 );
 
-Sort3	u_Sort3_6
-(
+Sort3	u_Sort3_6 (
 	.clk		(clk),
 	.rst_n		(rst_n),
 	
@@ -109,8 +102,7 @@ Sort3	u_Sort3_6
 );
 
 //step3
-Sort3	u_Sort3_7
-(
+Sort3	u_Sort3_7 (
 	.clk		(clk),
 	.rst_n		(rst_n),
 	

@@ -62,7 +62,6 @@ module SQRT (
 				// synopsys translate_on
 				);
 	defparam
-		ALTSQRT_component.pipeline = 0,
 		ALTSQRT_component.q_port_width = 11,
 		ALTSQRT_component.r_port_width = 12,
 		ALTSQRT_component.width = 21;
