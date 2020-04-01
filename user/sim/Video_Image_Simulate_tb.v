@@ -51,7 +51,8 @@ wire				matrix_frame_href;	//Prepared Image data href vaild  signal
 wire		[7:0]	matrix_p11, matrix_p12, matrix_p13;	//3X3 Matrix output
 wire		[7:0]	matrix_p21, matrix_p22, matrix_p23;
 wire		[7:0]	matrix_p31, matrix_p32, matrix_p33;
-Matrix_Generate_3X3_8Bit #(
+Matrix_Generate_3X3 #(
+	.DATA_WIDTH (8),
 	.IMG_HDISP	(IMG_HDISP),	//640*480
 	.IMG_VDISP	(IMG_VDISP)
 ) Matrix_Generate_3X3_8Bit_u (
@@ -62,7 +63,7 @@ Matrix_Generate_3X3_8Bit #(
 	//Image data prepred to be processd
 	.per_frame_vsync		(cmos_vsync),		//Prepared Image data vsync valid signal
 	.per_frame_href			(cmos_href),		//Prepared Image data href vaild  signal
-	.per_img_Gray			(cmos_data),			//Prepared Image brightness input
+	.per_img_Data			(cmos_data),			//Prepared Image brightness input
 
 	//Image data has been processd
 	.matrix_frame_vsync		(matrix_frame_vsync),	//Processed Image data vsync valid signal

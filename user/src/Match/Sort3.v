@@ -1,7 +1,5 @@
 `timescale 1ns/1ns
-
-module	Sort3
-(
+module	Sort3 (
 	input				clk,
 	input				rst_n,
 	
@@ -11,16 +9,13 @@ module	Sort3
 
 //-----------------------------------
 //Sort of 3 datas	
-always@(posedge clk or negedge rst_n)
-begin
-	if(!rst_n)
-		begin
+always@(posedge clk or negedge rst_n) begin
+	if(!rst_n) begin
 		max_data <= 0;
 		mid_data <= 0;
 		min_data <= 0;
-		end
-	else
-		begin
+	end
+	else begin
 		//get the max value
 		if(data1 >= data2 && data1 >= data3)
 			max_data <= data1;
@@ -44,7 +39,7 @@ begin
 			min_data <= data2;
 		else//(data3 <= data1 && data3 <= data2)
 			min_data <= data3;
-		end
+	end
 end
 
 endmodule
