@@ -1,5 +1,5 @@
 module Line_Shift_RAM #(
-	parameter  RAM_Length = 11'd640,	//640*480
+	parameter  RAM_Length = 640,	//640*480
     parameter  DATA_WIDTH = 8
 ) (
 	input	                   clken,
@@ -11,7 +11,7 @@ module Line_Shift_RAM #(
 
 RAMshift_taps #(
 	.TOTAL_RAM_Length (RAM_Length),
-	.INPUT_WIDTH (DATA_WIDTH)
+	.DATA_WIDTH (DATA_WIDTH)
 ) RAMshfit_taps_u1 (
 	.clken(clken), 
 	.clock(clock),
@@ -22,7 +22,7 @@ RAMshift_taps #(
 
 RAMshift_taps #(
 	.TOTAL_RAM_Length (RAM_Length),
-	.INPUT_WIDTH (DATA_WIDTH)
+	.DATA_WIDTH (DATA_WIDTH)
 ) RAMshfit_taps_u2 (
 	.clken(clken), 
 	.clock(clock),

@@ -7,7 +7,7 @@ module Sqrt # (
     parameter width        = 16  // The width of the radical
 ) (
 // INPUT PORT DECLARATION
-    input  [width - 1 : 0] radical,
+    input  [width - 1 : 0]        radical,
 // OUTPUT PORT DECLARATION
     output [q_port_width - 1 : 0] q,
     output [r_port_width - 1 : 0] remainder

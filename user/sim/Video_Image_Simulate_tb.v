@@ -22,8 +22,8 @@ end
 endtask
 wire	sys_rst_n = rst_n;	
 
-localparam	[9:0]	IMG_HDISP = 10'd16;	
-localparam	[9:0]	IMG_VDISP = 10'd5;
+localparam	IMG_HDISP = 16;	
+localparam	IMG_VDISP = 5;
 //-----------------------------------------
 //CMOS Camera interface and data output simulation
 wire			cmos_xclk = clk;		//24MHz drive clock

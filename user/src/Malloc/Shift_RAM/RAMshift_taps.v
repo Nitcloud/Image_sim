@@ -2,18 +2,18 @@
 
 module RAMshift_taps #(
 	parameter TOTAL_RAM_Length = 640,
-	parameter INPUT_WIDTH = 8
+	parameter DATA_WIDTH = 8
 ) (
-	input	  					   clken, 
-	input	  					   clock,
-	input	[31:0]                 Delay_Length,
-	input	[INPUT_WIDTH - 1 : 0]  shiftin,
-	output	[INPUT_WIDTH - 1 : 0]  shiftout
+	input	  					  clken, 
+	input	  					  clock,
+	input	[31:0]                Delay_Length,
+	input	[DATA_WIDTH - 1 : 0]  shiftin,
+	output	[DATA_WIDTH - 1 : 0]  shiftout
 );
 
-reg  [15:0] RAM_CNT = 0;
-reg	 [INPUT_WIDTH - 1 : 0] ram_buf = 0;
-reg	 [INPUT_WIDTH - 1 : 0] shift_ram [TOTAL_RAM_Length - 1 : 0];
+reg  [31:0] RAM_CNT = 0;
+reg	 [DATA_WIDTH - 1 : 0] ram_buf = 0;
+reg	 [DATA_WIDTH - 1 : 0] shift_ram [TOTAL_RAM_Length - 1 : 0];
 
 integer m;
 initial begin
@@ -24,7 +24,7 @@ end
 
 always @(posedge clock) begin
     if (RAM_CNT == (Delay_Length - 1)) 
-        RAM_CNT <= 16'd0;
+        RAM_CNT <= 0;
     else if (clken) 
         RAM_CNT <= RAM_CNT + 1;
 	else

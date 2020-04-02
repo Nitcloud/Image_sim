@@ -1,12 +1,10 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/project/My_FPGA/TCL_project/Image_sim/user/src/Malloc/Shift_RAM/Line_Shift_RAM.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/project/FPGA/My_FPGA/TCL_project/Sim/Image_sim/user/src/Malloc/Shift_RAM/Line_Shift_RAM.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Line_Shift_RAM
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/project/My_FPGA/TCL_project/Image_sim/user/src/Video_Image_Processor/Basic_Apply/Matrix/Matrix_Generate_3X3.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/project/FPGA/My_FPGA/TCL_project/Sim/Image_sim/user/src/Video_Image_Processor/Basic_Apply/Matrix/Matrix_Generate_3X3.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Matrix_Generate_3X3
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/project/My_FPGA/TCL_project/Image_sim/user/src/Malloc/Shift_RAM/RAMshift_taps.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/project/FPGA/My_FPGA/TCL_project/Sim/Image_sim/user/src/Malloc/Shift_RAM/RAMshift_taps.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module RAMshift_taps
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/project/My_FPGA/TCL_project/Image_sim/user/src/Match/Sqrt.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module Sqrt
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/project/My_FPGA/TCL_project/Image_sim/user/sim/Video_Image_Simulate_CMOS.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/project/FPGA/My_FPGA/TCL_project/Sim/Image_sim/user/sim/Video_Image_Simulate_CMOS.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module Video_Image_Simulate_CMOS
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/project/My_FPGA/TCL_project/Image_sim/user/sim/testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/project/FPGA/My_FPGA/TCL_project/Sim/Image_sim/user/sim/testbench.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module testbench
