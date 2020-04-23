@@ -1,12 +1,10 @@
-module Parallel_Line_Detector #
-(
+module Parallel_Line_Detector #(
 	parameter	IMG_VDISP      = 1240,
 	parameter	X_THRESHOLD    = 100,
 	parameter	Y_THRESHOLD    = 100,
 	parameter	X_Center_Value = 540,
 	parameter	Y_Center_Value = 540
-)
-(
+) (
 	input         clk,
 	input         rst_n,
 	//
@@ -34,8 +32,8 @@ always @ (posedge clk or negedge rst_n) begin
 		per_frame_vsync_r <= {per_frame_vsync_r[0],per_frame_vsync};
 	end
 end
-assign href_pos  =(~per_frame_href_r[1] & per_frame_href_r[0]) ? 1'b1 : 1'b0;   //一行信号的开始
-assign href_neg  =(~per_frame_href_r[0] & per_frame_href_r[1]) ? 1'b1 : 1'b0;   //一行信号的结束
+assign href_pos  =(~per_frame_href_r[1]  & per_frame_href_r[0])  ? 1'b1 : 1'b0; //一行信号的开始
+assign href_neg  =(~per_frame_href_r[0]  & per_frame_href_r[1])  ? 1'b1 : 1'b0; //一行信号的结束
 assign vsync_neg =(~per_frame_vsync_r[0] & per_frame_vsync_r[1]) ? 1'b1 : 1'b0; //一帧信号的结束
 
 /**************************************直线检测部分**************************************/
